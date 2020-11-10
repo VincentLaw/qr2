@@ -20,10 +20,11 @@ public class test : MonoBehaviour
     public GameObject scannedCodeSuccessfully;
     public GameObject scannedCodeSuccessfully2;
     public GameObject invalidQR;
+    public GameObject loginPanel;
     // Start is called before the first frame update
     void Start()
     {
-        checkForNewCertification();
+        startCurrentPanel();
 
 
 
@@ -69,7 +70,7 @@ public class test : MonoBehaviour
     }
 
 
-    private void checkForNewCertification()
+    private void startCurrentPanel()
     {   //checar que string es el acutal, para saber que panel mostrar
         if (Store.lastCodeScanned != null)
         {
@@ -89,7 +90,15 @@ public class test : MonoBehaviour
         }
         else
         {
-            mainPanel.SetActive(true);
+            if (Store.userLogged==null) {
+                loginPanel.SetActive(true);
+            }
+            else
+            {
+                mainPanel.SetActive(true);
+                
+            }
+
         }
     }
 
@@ -131,6 +140,7 @@ public class test : MonoBehaviour
         //infoPanelForACollaborator.SetActive(false);
         //infoPanelForACompany.SetActive(false);
         infoPanelForAPerson.SetActive(false);
+        infoPanelForACompany.SetActive(false);
 
         mainPanel.SetActive(true);
 
@@ -138,8 +148,23 @@ public class test : MonoBehaviour
 
     public void displayMiInfoPanel()
     {
-        infoPanelForAPerson.SetActive(true);
+
+        if (Store.userLogged.Equals("commonUser")) { 
+            infoPanelForAPerson.SetActive(true);
+        }
+        else
+        {
+            infoPanelForACompany.SetActive(true);
+        }
+        
+     
         mainPanel.SetActive(false);
+    }
+
+    public void logOut() {
+        mainPanel.SetActive(false);
+        loginPanel.SetActive(true);
+        Store.userLogged = null;
     }
 
     public void closesSuccessfulScan()

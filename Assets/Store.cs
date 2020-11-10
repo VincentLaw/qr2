@@ -18,4 +18,16 @@ public class Store
 
     public static string lastCodeScanned;
 
+
+    public static string userLogged=null;
+
+    public static List<GameObject> myPeopleSelectedByACompany = new List<GameObject>();
+    public static List<GameObject> rejectedPeopleByACompany = new List<GameObject>();
+
+    public static List<GameObject> myCompaniesSelectedByACompany = new List<GameObject>();
+    public static List<GameObject> rejectedCompaniesByACompany = new List<GameObject>();
+
+    public static List<GameObject> myColaboratorsSelectedByACompany = new List<GameObject>();
+    public static List<GameObject> rejectedColaboratorsByACompany = new List<GameObject>();
+
 }
