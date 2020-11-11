@@ -13,6 +13,7 @@ public class LoginController : MonoBehaviour
     public InputField password;
     public GameObject errorText;
     public GameObject mainPanel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,5 +44,7 @@ public class LoginController : MonoBehaviour
         else {
             errorText.SetActive(true);
         }
+
+        
     }
 }

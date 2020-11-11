@@ -21,6 +21,9 @@ public class test : MonoBehaviour
     public GameObject scannedCodeSuccessfully2;
     public GameObject invalidQR;
     public GameObject loginPanel;
+    public GameObject trendsPanel;
+    public GameObject preselectionPanel;
+    public PreselectedPeopleController preselectedController;
     // Start is called before the first frame update
     void Start()
     {
@@ -138,11 +141,27 @@ public class test : MonoBehaviour
         peoplePanel.SetActive(false);
 
         //infoPanelForACollaborator.SetActive(false);
-        //infoPanelForACompany.SetActive(false);
+       // infoPanelForACompany.SetActive(false);
         infoPanelForAPerson.SetActive(false);
         infoPanelForACompany.SetActive(false);
-
+        trendsPanel.SetActive(false);
         mainPanel.SetActive(true);
+        preselectionPanel.SetActive(false);
+
+}
+
+    public void displayPreselection()
+    {
+        preselectionPanel.SetActive(true);
+        infoPanelForACompany.SetActive(false);
+
+    }
+
+
+    public void displayTrendsPanel()
+    {
+
+        trendsPanel.SetActive(true);
 
     }
 
@@ -154,6 +173,7 @@ public class test : MonoBehaviour
         }
         else
         {
+            preselectedController.init();
             infoPanelForACompany.SetActive(true);
         }
         
